@@ -12,5 +12,11 @@
     "url": "git@github.com-nodeAriful:nodeAriful/express-101.git"
   },
   "author": "Ariful Islam",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "engines": {
+    "node": "v16.13.0"
+  }
 }
