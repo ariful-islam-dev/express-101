@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <!--Navigation-->
+    <%- include('../partials/nav.ejs') %>
+    <div class="container">
+      <div class="jumbotron bg-light p-5">
+        <h1 class="display-4"><%= title %></h1>
+        <small> <%= new Date().toISOString() %> </small>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
+          reiciendis temporibus! Hic reiciendis nulla dicta saepe aliquid nihil
+          neque distinctio at cupiditate, ratione porro fugit dolor animi ullam
+          dolorem quidem? Beatae libero blanditiis rem dignissimos officiis illo
+          magni officia sit et, molestias nulla, rerum maiores, veritatis
+          facilis. Nisi, reiciendis inventore.
+        </p>
+        <button class="btn btn-primary">Call Me</button>
+      </div>
+    </div>
+  </body>
+</html>
