@@ -1,18 +1,8 @@
 const fs = require("fs");
 
 exports.homeController = (req, res) => {
-   const error =   new Error('Bad Request')
-    error.status = 400;
-    // throw error
-  fs.readFile("./pages/index.html", (err, data) => {
-    if (err) {
-      console.log(err);
-      res.send("<h1>Something wen wrong</h1>");
-    } else {
-      res.write(data);
-      res.end();
-    }
-  });
+  const title = "Dynamic Title";
+  res.render("home", { title });
 };
 
 exports.aboutController = (req, res) => {
