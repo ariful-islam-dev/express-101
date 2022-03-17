@@ -5,6 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 app.get("/", (req, res) => {
+  console.log(req.get('Accept'));
  fs.readFile('./pages/index.html', (err, data)=>{
    if(err){
      console.log(err);
