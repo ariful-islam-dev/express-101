@@ -1,48 +1,21 @@
 const express = require("express");
-const fs = require("fs");
+
 const cors = require('cors');
 const morgan = require('morgan')
 
 const app = express();
 const PORT = process.env.PORT || 4000;
+const router = express.Router();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cors())
 app.use(globalMiddleware)
+app.use(require('./routes'))
 
-app.get("/", (req, res) => {
-  fs.readFile("./pages/index.html", (err, data) => {
-    if (err) {
-      console.log(err);
-      res.send("<h1>Something wen wrong</h1>");
-    } else {
-      res.write(data);
-      res.end();
-    }
-  });
-});
-app.get("/about", localMiddleware, (req, res) => {
-  fs.readFile("./pages/about.html", (err, data) => {
-    if (err) {
-      res.send("<h1>Something is wrong</h1>");
-    } else {
-      res.write(data);
-      res.end();
-    }
-  });
-});
-app.get("/help", (req, res) => {
-  fs.readFile("./pages/help.html", (err, data) => {
-    if (err) {
-      res.send("<h1>Something is wrong</h1>");
-    } else {
-      res.write(data);
-      res.end();
-    }
-  });
-});
+
+
 
 app.listen(PORT, () => {
   console.log(`Server is listening on PORT ${PORT}`);
@@ -50,14 +23,6 @@ app.listen(PORT, () => {
 
 
 // this is a middleware signature
-
-function handler(req, res, next){
-
-}
-
-function middlewareSignature(req, res, next){
-  next();
-}
 
 function globalMiddleware(req, res,next){
   console.log(`${req.method} - ${req.url}`);
@@ -71,5 +36,5 @@ function globalMiddleware(req, res,next){
 
 function localMiddleware(req, res, next){
   console.log('This is local middleware '+ req.url);
-  next()
+  next() 
 }
