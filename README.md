@@ -7,7 +7,7 @@
 ## Modules
 
 - [x] Welcome
-- [x] Understand Express Fremwork
+- [x] Understand Express Framework
 - [x] Application
 - [x] Request
 - [x] Response

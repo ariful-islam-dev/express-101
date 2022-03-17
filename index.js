@@ -5,7 +5,6 @@ const morgan = require('morgan')
 
 const app = express();
 const PORT = process.env.PORT || 4000;
-const router = express.Router();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
